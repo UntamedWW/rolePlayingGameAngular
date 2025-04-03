@@ -1,0 +1,36 @@
+<div id="game">
+  <div id="stats">
+    <span class="stat"
+      >XP: <strong>{{ gameData.xp }}</strong></span
+    >
+    <span class="stat"
+      >Health: <strong>{{ gameData.health }}</strong></span
+    >
+    <span class="stat"
+      >Gold: <strong>{{ gameData.gold }}</strong></span
+    >
+  </div>
+
+  <div id="controls">
+    <button
+      *ngFor="let button of buttons; let i = index"
+      (click)="onButtonClick(i)"
+    >
+      {{ button }}
+    </button>
+  </div>
+
+  <div id="monsterStats" *ngIf="gameData.fighting !== undefined">
+    <span class="stat"
+      >Monster Name:
+      <strong>{{ gameData.monsters[gameData.fighting]?.name }}</strong></span
+    >
+    <span class="stat"
+      >Health: <strong>{{ gameData.monsterHealth }}</strong></span
+    >
+  </div>
+
+  <div id="text">
+    {{ text }}
+  </div>
+</div>
